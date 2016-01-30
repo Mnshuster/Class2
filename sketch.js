@@ -1,3 +1,7 @@
+var position=0
+var speed = 3
+
+
 function setup() {
   createCanvas(1000,600);
 
@@ -96,13 +100,17 @@ function elf (x) {
   fill(148,0,211);
   rect(x + 222,575,150,75);
  
-  
-  
 }
 
 
 function draw (){
-  elf(mouseX);
+  elf(position);
+  
+  if (position > 600) {
+    speed=-3;
+}
+  position = position + speed;
+
   
   fill(255,255,255);
   ellipse(SnowX,SnowY,15,15);
@@ -126,10 +134,19 @@ function draw (){
   ellipse(SnowX+900,SnowY+100,15,15);
   ellipse(SnowX+950,SnowY+180,18,18);
   ellipse(SnowX+1000,SnowY+350,15,15);
- 
+
+  
   SnowY=SnowY+2;
   
   if(SnowY>600){
    SnowY=0;
 }
 }
+
+
+
+ 
+
+
+
+
