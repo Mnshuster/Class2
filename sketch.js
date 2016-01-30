@@ -104,13 +104,17 @@ function elf (x) {
 
 
 function draw (){
-  elf(position);
+  elf(position-200);
+
   
-  if (position > 600) {
-    speed=-3;
+  if (position > 800 || position < 0) {
+    speed = speed * -1;
 }
+
+
   position = position + speed;
 
+  
   
   fill(255,255,255);
   ellipse(SnowX,SnowY,15,15);
