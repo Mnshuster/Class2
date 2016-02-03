@@ -1,18 +1,23 @@
-var position=0
-var speed = 3
+var position=0;
+var speed = 3;
+var x = 0;
+var y = 0;
+var fall = 0;
+var snow = 3;
+var SnowX=15;
+var SnowY=15;
 
 
 function setup() {
   createCanvas(1000,600);
-
+  background(175,238,238);
 }
-var SnowX=15;
-var SnowY=15;
+
+
+ 
 
 function elf (x) {
-  
-    background(175,238,238);
-  //face
+ //face
   fill(255,222,173);
   strokeWeight(0);
   ellipse(x + 300,425,275,300);
@@ -35,7 +40,6 @@ function elf (x) {
   stroke(0);
   ellipse(x + 250,420,30,30);
   ellipse(x + 350,420,30,30);
-
   fill(0,0,0);
   ellipse(x + 250,420,20,20);
   ellipse(x + 350,420,20,20);
@@ -43,8 +47,6 @@ function elf (x) {
   stroke(0);
   ellipse(x + 250,445,50,45);
   ellipse(x + 350,445,50,45);
-  
-  
   //hair
   fill(255,165,0);
   ellipse(x + 180,375,50,50);
@@ -56,7 +58,6 @@ function elf (x) {
   ellipse(x + 360,375,50,50) ;
   ellipse(x + 390,375,50,50) ;
   ellipse(x + 420,375,50,50);
-  
   //hat green
   fill(46,139,87);
   stroke(0);
@@ -70,12 +71,9 @@ function elf (x) {
   fill(255,255,255);
   stroke(0);
   ellipse(x + 120,200,50,50);
- 
   //nose
   fill(255,228,225);
   stroke(0);
-  
-  
   //mouth
   fill(0,0,0);
   stroke(0);
@@ -86,7 +84,6 @@ function elf (x) {
   ellipse(x + 300,485,75,60);
   fill(255,222,173);
   ellipse(x + 300,465,90,60);
-  
   //nose
   fill(255,228,225);
   stroke(0);
@@ -95,62 +92,43 @@ function elf (x) {
   fill(255,192,203);
   ellipse(x + 240,460,50,50);
   ellipse(x + 360,460,50,50);
-  
   //shirt
   fill(148,0,211);
   rect(x + 222,575,150,75);
- 
 }
 
 
+ 
 function draw (){
-  elf(position-200);
-
-  
-  if (position > 800 || position < 0) {
-    speed = speed * -1;
+  background(175,238,238);
+    elf(position-200);
+      if (position > 800 || position < 0) {
+       speed = speed * -1;
 }
-
-
-  position = position + speed;
-
   
   
-  fill(255,255,255);
-  ellipse(SnowX,SnowY,15,15);
-  ellipse(SnowX+50,SnowY+20,18,18);
-  ellipse(SnowX+100,SnowY+400,15,15);
-  ellipse(SnowX+150,SnowY+250,18,18);
-  ellipse(SnowX+200,SnowY+30,15,15);
-  ellipse(SnowX+250,SnowY+100,18,18);
-  ellipse(SnowX+300,SnowY+70,15,15);
-  ellipse(SnowX+350,SnowY+40,18,18);
-  ellipse(SnowX+400,SnowY+405,15,15);
-  ellipse(SnowX+450,SnowY+100,18,18);
-  ellipse(SnowX+500,SnowY+200,15,15);
-  ellipse(SnowX+550,SnowY+10,18,18);
-  ellipse(SnowX+600,SnowY+25,15,15);
-  ellipse(SnowX+650,SnowY+30,18,18);
-  ellipse(SnowX+700,SnowY+150,15,15);
-  ellipse(SnowX+750,SnowY+500,18,18);
-  ellipse(SnowX+800,SnowY+200,15,15);
-  ellipse(SnowX+850,SnowY+70,18,18);
-  ellipse(SnowX+900,SnowY+100,15,15);
-  ellipse(SnowX+950,SnowY+180,18,18);
-  ellipse(SnowX+1000,SnowY+350,15,15);
+snowflake(fall);
+  
+  
+position = position + speed;
 
-  
-  SnowY=SnowY+2;
-  
-  if(SnowY>600){
-   SnowY=0;
+fill(255,255,255);
+ellipse(SnowX,SnowY,15,15);
+
+for (var i = 0; i < 1001; i +=50) {
+  var snowFlakeSize = random(15,18);
+    ellipse(SnowX + i, SnowY + random(20, 400), snowFlakeSize, snowFlakeSize);
+
 }
 }
 
-
-
- 
-
-
+function snowflake(){
+  x=random (0,width);
+  y=random (0,height);
+  fill(255);
+  ellipse(x,y,15,15);
+}
+  
+  
 
 
